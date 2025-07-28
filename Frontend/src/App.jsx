@@ -1,11 +1,14 @@
 import React from 'react';
-import MapView from './MapView'; // MapView bileşenini import ediyoruz
+import MapView from './MapView';
+import { MapProvider } from './context/MapContext';
 
 function App() {
   return (
-    <div style={{ height: "100vh", width: "100%" }}>
-      <MapView />
-    </div>
+    <MapProvider>
+      <div style={{ height: "100vh", width: "100%" }}>
+        <MapView />
+      </div>
+    </MapProvider>
   );
 }
 

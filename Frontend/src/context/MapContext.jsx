@@ -2,8 +2,8 @@ import { createContext, useContext, useState, useEffect } from 'react';
 import axios from 'axios';
 
 const MapContext = createContext();
-const LINE_API = 'https://localhost:7042/api/line';
-const POLYGON_API = 'https://localhost:7042/api/polygon';
+const LINE_API = 'http://localhost:5290/api/line';
+const POLYGON_API = 'http://localhost:5290/api/polygon';
 
 
 export const MapProvider = ({ children }) => {
@@ -14,7 +14,7 @@ export const MapProvider = ({ children }) => {
   const [linePoints, setLinePoints] = useState([]);
   const [polygonPoints, setPolygonPoints] = useState([]);
 
-  const API_URL = 'https://localhost:7042/api/point';
+  const API_URL = 'http://localhost:5290/api/point';
 
   // Sayfa yüklendiğinde marker verilerini çekmeye yarar
   useEffect(() => {
@@ -135,7 +135,7 @@ const savePolygon = async (polygonPoints, name = "Yeni Alan") => {
 
 const deleteLine = async (id) => {
   try {
-    await axios.delete(`https://localhost:7042/api/line/${id}`);
+    await axios.delete(`http://localhost:5290/api/line/${id}`);
     setLines(prev => prev.filter(l => l.id !== id));
   } catch (err) {
     console.error('Çizgi silinemedi:', err);
@@ -144,7 +144,7 @@ const deleteLine = async (id) => {
 
 const deletePolygon = async (id) => {
   try {
-    await axios.delete(`https://localhost:7042/api/polygon/${id}`);
+    await axios.delete(`http://localhost:5290/api/polygon/${id}`);
     setPolygons(prev => prev.filter(p => p.id !== id));
   } catch (err) {
     console.error('Poligon silinemedi:', err);
@@ -174,4 +174,10 @@ const deletePolygon = async (id) => {
   );
 };
 
-export const useMapContext = () => useContext(MapContext);
+export const useMapContext = () => {
+  const context = useContext(MapContext);
+  if (context === undefined) {
+    throw new Error('useMapContext must be used within a MapProvider');
+  }
+  return context;
+};

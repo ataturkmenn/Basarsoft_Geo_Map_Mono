@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\atatr\\source\\repos\\WebApplication1\\WebApplication1\\WebApplication1.csproj": {}
+    "C:\\Projects\\Basarsoft_Geo_Map_Mono\\Backend\\WebApplication1\\WebApplication1.csproj": {}
   },
   "projects": {
-    "C:\\Users\\atatr\\source\\repos\\WebApplication1\\WebApplication1\\WebApplication1.csproj": {
+    "C:\\Projects\\Basarsoft_Geo_Map_Mono\\Backend\\WebApplication1\\WebApplication1.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\atatr\\source\\repos\\WebApplication1\\WebApplication1\\WebApplication1.csproj",
+        "projectUniqueName": "C:\\Projects\\Basarsoft_Geo_Map_Mono\\Backend\\WebApplication1\\WebApplication1.csproj",
         "projectName": "WebApplication1",
-        "projectPath": "C:\\Users\\atatr\\source\\repos\\WebApplication1\\WebApplication1\\WebApplication1.csproj",
+        "projectPath": "C:\\Projects\\Basarsoft_Geo_Map_Mono\\Backend\\WebApplication1\\WebApplication1.csproj",
         "packagesPath": "C:\\Users\\atatr\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\atatr\\source\\repos\\WebApplication1\\WebApplication1\\obj\\",
+        "outputPath": "C:\\Projects\\Basarsoft_Geo_Map_Mono\\Backend\\WebApplication1\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\DevExpress 24.1\\Components\\Offline Packages",

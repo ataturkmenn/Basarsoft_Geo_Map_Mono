@@ -2,7 +2,7 @@ import { MapContainer, TileLayer, Marker, Popup, Polyline, Polygon, useMapEvents
 import 'leaflet/dist/leaflet.css';
 import L from 'leaflet';
 import './MapView.css';
-import { useMapContext } from 'C:/Users/atatr/geo-map-basarsoft/src/context/MapContext.jsx';
+import { useMapContext } from './context/MapContext';
 import { useState, useRef, useEffect } from 'react';
 import Modal from 'react-modal';
 import axios from 'axios';
@@ -181,7 +181,7 @@ function MapView() {
     setSelectedLineIndex('');
     showToast('Çizgi Silindi');
     try {
-      await axios.delete(`https://localhost:7042/api/line/by-name/${encodeURIComponent(name)}`);
+      await axios.delete(`http://localhost:5290/api/line/by-name/${encodeURIComponent(name)}`);
     } catch (err) {
       console.error("Backend'den silinemedi:", err);
     }
@@ -196,7 +196,7 @@ function MapView() {
     setSelectedPolygonIndex('');
     showToast('Poligon Silindi');
     try {
-      await axios.delete(`https://localhost:7042/api/polygon/by-name/${encodeURIComponent(name)}`);
+      await axios.delete(`http://localhost:5290/api/polygon/by-name/${encodeURIComponent(name)}`);
     } catch (err) {
       console.error("Backend'den poligon silinemedi:", err);
     }
@@ -209,7 +209,7 @@ function MapView() {
 
   const sendLineToBackend = async (line) => {
     const wkt = convertLineToWKT(line.points);
-    await axios.post('https://localhost:7042/api/line', {
+    await axios.post('http://localhost:5290/api/line', {
       name: line.name || 'Çizgi',
       wkt: wkt
     });
@@ -223,7 +223,7 @@ function MapView() {
 
   const sendPolygonToBackend = async (poly) => {
     const wkt = convertPolygonToWKT(poly.points);
-    await axios.post('https://localhost:7042/api/polygon', {
+    await axios.post('http://localhost:5290/api/polygon', {
       name: poly.name || 'Poligon',
       wkt: wkt
     });
