@@ -36,7 +36,7 @@ var app = builder.Build();
 app.UseSwagger();
 app.UseSwaggerUI();
 
-// CORS burada çağrılıyor
+
 app.UseCors("AllowFrontend");
 
 app.UseAuthorization();
